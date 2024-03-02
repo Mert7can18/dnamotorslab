@@ -7,16 +7,16 @@ body {
 }
 
 header {
-    background-color: #c5c4c4;
+    background-color: #BCD4DE;
     color: white;
-    padding: 10px 0;
+    padding: 0px 0; /* Padding'i artırdım */
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 3px; /* Aralıkları artırdım */
 }
 
 .logo {
@@ -27,7 +27,7 @@ header {
 
 .logo img {
     margin-right: 5px;
-    border-radius: 100px;
+    border-radius: 50%; /* Daire şeklinde border radius */
 }
 
 .actions {
@@ -43,23 +43,25 @@ header {
 }
 
 footer {
-    background-color: #f2f2f2;
-    padding: 10px;
+    background-color: #A0B9BF;
     text-align: center;
-    position: fixed;
+    position: absolute; /* Fixed yerine Absolute kullanıldı */
     bottom: 0;
     width: 100%;
+    display: none; /* Başlangıçta gizli olarak ayarlandı */
 }
 
 .content {
-    background-color: #ffffff;
+    background-color: #A5CCD1; /* Arka plan rengi */
     padding: 20px;
+    border-radius: 15px; /* Kavisli köşeler */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    margin: 20px; /* Boşluk ekledim */
 }
 
 .paragraph {
     text-align: justify;
 }
-
 
 .team {
     padding: 20px;
@@ -74,12 +76,12 @@ footer {
 .member img {
     width: 200px;
     height: 200px;
-    border-radius: 50%; /* Yuvarlak çerçeve */
+    border-radius: 30%; /* Yuvarlak çerçeve */
     object-fit: cover;
-    border: 4px solid #8e8c8c; /* Yuvarlak çerçeve kenarı */
+    border: 3px solid #BCD4DE; /* Yuvarlak çerçeve kenarı */
 }
 
-.member h2 {
+.member h2 {   
     margin-top: 10px;
     font-size: 20px;
 }
