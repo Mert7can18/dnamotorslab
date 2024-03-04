@@ -1,22 +1,34 @@
-<?php
+<?php   //Contact page you should use if you get SMTP service
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
 
-    // Form verilerini e-posta olarak gönderme
-    $to = "example@example.com"; // Alıcı e-posta adresi
-    $subject = "Contact Form Submission";
-    $body = "Name: $name\nEmail: $email\nMessage: $message";
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-    // E-postayı gönderme
-    if (mail($to, $subject, $body)) {
-        echo "Message sent successfully!";
+
+    $to = "mert7can4114@gmail.com";
+
+
+    $subject = "Contact Form Message";
+
+
+    $email_content = "Sender Name: $name\n";
+    $email_content .= "Sender Email Address: $email\n\n";
+    $email_content .= "Message:\n$message\n";
+
+
+    $headers = "From: $name <$email>";
+
+
+    if (mail($to, $subject, $email_content, $headers)) {
+
+        echo "<p>Your message has been sent successfully. Thanks!</p>";
     } else {
-        echo "Failed to send message. Please try again later.";
+
+        echo "<p>Sorry, there was an error sending your message. Please try again later.</p>";
     }
 } else {
-    // Formun POST metoduyla gönderilmediği durumda hata mesajı gösterme
-    echo "Form submission method is not allowed.";
+
+    echo "<p>The form was not sent via post method.</p>";
 }
 ?>
