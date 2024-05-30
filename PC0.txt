@@ -1,0 +1,36 @@
+PC0
+
+
+Router>en
+Router#conf t
+Router(config)#host ANKARA
+ANKARA(config)#ena secret 080500
+ANKARA(config)#banner login xYASAKTIRx
+ANKARA(config)#banner motd xHOSGELDINIZx
+ANKARA(config)#int fa0/0
+ANKARA(config-if)#ip add 192.168.1.1 255.255.255.0
+ANKARA(config-if)#no shut
+
+ANKARA(config-if)#ex
+ANKARA(config)#int se0/0/0
+ANKARA(config-if)#ip add 192.168.2.1 255.255.255.252
+ANKARA(config-if)#no shut
+
+ANKARA(config-if)#ex
+ANKARA(config)#
+ANKARA(config)#
+
+ANKARA(config)#
+ANKARA(config)#route rip
+ANKARA(config-router)#version 2
+ANKARA(config-router)#net 192.168.1.0
+ANKARA(config-router)#net 192.168.2.0
+
+  
+
+ANKARA(config)#int se0/0/0
+ANKARA(config-if)#clo
+ANKARA(config-if)#clock rate
+ANKARA(config-if)#clock rate 128000
+ANKARA(config-if)#ex
+

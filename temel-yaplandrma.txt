@@ -1,0 +1,51 @@
+Router>en
+
+Router#conf t
+
+Router(config)#hostname bilisim
+
+bilisim(config)#banner motd #iyi calismalar#
+
+bilisim(config)#banner login #Routere Telnet veya Console ile giris yaptiniz#
+
+bilisim(config)#enable secret cisco
+
+bilisim(config)#line vty 0 5
+
+bilisim(config-line)#password cisco
+
+bilisim(config-line)#login
+
+bilisim(config-line)#do write
+
+bilisim(config-line)#
+
+bilisim(config-line)#end
+
+bilisim#conf t
+
+bilisim(config)#line console 0
+
+bilisim(config-line)#password cisco
+
+bilisim(config-line)#login
+
+bilisim(config-line)#do write
+
+bilisim(config)#end
+
+bilisim#conf t
+
+bilisim(config)#int fa0/0
+
+bilisim(config-if)#ip add 192.168.1.1 255.255.255.0
+
+bilisim(config-if)#no shutdown 
+
+bilisim(config)#exit
+
+bilisim#conf t
+
+bilisim(config)#service password-enc
+
+bilisim(config)#

@@ -1,0 +1,40 @@
+PC3
+
+
+Router>en
+Router#conf t
+Router(config)#host KOCAELI
+KOCAELI(config)#enab sec 080500
+KOCAELI(config)#banner login xYASAKTIRx
+KOCAELI(config)#banner motd xHOSGELDINIZx
+KOCAELI(config)#int fa 0/0
+KOCAELI(config-if)#ip add 192.168.3.1 255.255.255.0
+KOCAELI(config-if)#no shut
+
+KOCAELI(config-if)#ex
+KOCAELI(config)#
+KOCAELI(config)#int se0/0/0
+KOCAELI(config-if)#ip add 192.168.2.2 255.255.255.252
+KOCAELI(config-if)#no shut	
+KOCAELI(config-if)#do wr
+
+KOCAELI#en
+KOCAELI#conf t                  	
+KOCAELI(config)#int se0/0/0
+KOCAELI(config-if)#ex
+
+
+KOCAELI(config)#route rip
+KOCAELI(config-router)#net 192.168.3.0
+KOCAELI(config-router)#net 192.168.2.0
+KOCAELI(config-router)#ex
+
+KOCAELI(config)#route rip
+KOCAELI(config-router)#version 2
+KOCAELI(config-router)#ex
+
+KOCAELI(config)#int fa0/0
+
+KOCAELI(config-if)#ip helper-address 192.168.1.2
+KOCAELI(config-if)#ex
+
